@@ -5,7 +5,8 @@ Resources to make your agent less stupid.
 Although I try in some places to guide on usage with Claude, I'm building this with
 VSCode's default GitHub Copilot.
 
-**Forcing Load**
+### Forcing Load
+
 If you would like any of the instructions provided here to be loaded on any agent operation,
 set `applyTo: **` within the frontmatter of them.
 
