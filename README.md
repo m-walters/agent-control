@@ -17,40 +17,10 @@ For global always-on instructions, see "Always-on Instructions" below.
 
 Also, you can add [instructions/copilot-instructions.md](./instructions/copilot-instructions.md) to your global instructions file.
 
-## Creating Instructions
+## Adding Instructions
 
 In VSCode, run **Chat: Open Customizations** from the Command Palette to check whether your instructions or skills are discovered.
 To test use, start a fresh chat with a matching task and check the response's **References** for instructions, or invoke a skill from the `/` menu.
-
-### Filename
-
-Name Copilot's modular files `*.instructions.md`. Claude rules can use ordinary
-`*.md` filenames.
-
-### Frontmatter
-
-For Copilot, you can optionally supply frontmatter:
-
-```yaml
----
-name: ...
-description: ...
-applyTo: "**/*.py"
----
-```
-
-`applyTo` automatically attaches instructions when matching files are changed.
-`description` helps the agent discover instructions relevant to a task. If you
-omit both, attach the file manually.
-
-For Claude rules, use `paths` instead of `applyTo`:
-
-```yaml
----
-paths:
-  - "**/*.py"
----
-```
 
 ### Locations
 
@@ -82,13 +52,59 @@ and [Claude Code instructions documentation](https://code.claude.com/docs/en/mem
 | Claude user-level instructions that apply across repositories. | `~/.claude/CLAUDE.md` |
 | Claude repository-wide instructions. | `CLAUDE.md` or `.claude/CLAUDE.md` |
 
+### Filenaming
+
+Name Copilot's modular files `*.instructions.md`. Claude rules can use ordinary
+`*.md` filenames.
+
+### Frontmatter
+
+For Copilot, you can optionally supply frontmatter:
+
+```yaml
+---
+name: ...
+description: ...
+applyTo: "**/*.py"
+---
+```
+
+`applyTo` automatically attaches instructions when matching files are changed.
+`description` helps the agent discover instructions relevant to a task. If you
+omit both, attach the file manually.
+
+For Claude rules, use `paths` instead of `applyTo`:
+
+```yaml
+---
+paths:
+  - "**/*.py"
+---
+```
+
 ## Creating Skills
 
 Skills describe task-specific workflows that the agent can load when relevant.
 Unlike instructions, a skill can also include scripts, examples, and other
 supporting files.
 
-### Filename
+### Locations
+
+As with instructions, workspace skills belong to a project, while user skills
+are available across projects.
+
+| Session and scope | Default file location |
+|-------------------|-----------------------|
+| Copilot workspace | `.github/skills/<skill-name>/SKILL.md` |
+| Claude workspace | `.claude/skills/<skill-name>/SKILL.md` |
+| Copilot user | `~/.copilot/skills/<skill-name>/SKILL.md` |
+| Claude user | `~/.claude/skills/<skill-name>/SKILL.md` |
+
+VS Code's Local sessions also search `.claude/skills/` and `.agents/skills/`
+in the workspace, and `~/.claude/skills/` and `~/.agents/skills/` for user
+skills. Supported locations can differ between harnesses.
+
+### Filenaming
 
 Give each skill its own directory containing a file named `SKILL.md`. For
 example, `.github/skills/test-changes/SKILL.md`:
@@ -109,22 +125,6 @@ description: Run relevant project tests when validating a code change and report
 In VS Code, `name` and `description` are required. The name must match the
 directory name and use only lowercase letters, numbers, and hyphens. The
 description should say both what the skill does and when to use it.
-
-### Locations
-
-As with instructions, workspace skills belong to a project, while user skills
-are available across projects.
-
-| Session and scope | Default file location |
-|-------------------|-----------------------|
-| Copilot workspace | `.github/skills/<skill-name>/SKILL.md` |
-| Claude workspace | `.claude/skills/<skill-name>/SKILL.md` |
-| Copilot user | `~/.copilot/skills/<skill-name>/SKILL.md` |
-| Claude user | `~/.claude/skills/<skill-name>/SKILL.md` |
-
-VS Code's Local sessions also search `.claude/skills/` and `.agents/skills/`
-in the workspace, and `~/.claude/skills/` and `~/.agents/skills/` for user
-skills. Supported locations can differ between harnesses.
 
 ### Using skills
 
