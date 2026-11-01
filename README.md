@@ -10,7 +10,7 @@ VSCode's default GitHub Copilot.
 If you would like any of the instructions provided here to be loaded on any agent operation,
 set `applyTo: **` within the frontmatter of them.
 
-From what I understand, this is literally on every request, but would be pulled in when
+From what I understand, this is not literally on every request, but would be pulled in when
 it wants to edit a file.
 
 For global always-on instructions, see "Always-on Instructions" below.
