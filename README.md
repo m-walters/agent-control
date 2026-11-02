@@ -15,7 +15,7 @@ it wants to edit a file.
 
 For global always-on instructions, see "Always-on Instructions" below.
 
-Also, you can add [instructions/copilot-instructions.md](./instructions/copilot-instructions.md) to your global instructions file.
+Also, you can add [copilot-instructions.md](./copilot-instructions.md) to your global instructions file.
 
 ## Adding Instructions
 
