@@ -1,6 +1,8 @@
 ---
 name: "Writing Good Code"
 description: "Important notes on writing good, succinct code, with the big picture in mind."
+applyTo: '**'
+paths: ["*"]
 ---
 
 ## Intro

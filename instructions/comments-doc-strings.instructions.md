@@ -1,6 +1,8 @@
 ---
 name: 'Comments and Doc Strings'
 description: 'When writing doc strings and comments'
+applyTo: '**'
+paths: ["*"]
 ---
 
 ## Writing comments and doc strings

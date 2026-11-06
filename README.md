@@ -9,6 +9,7 @@ VSCode's default GitHub Copilot.
 
 If you would like any of the instructions provided here to be loaded on any agent operation,
 set `applyTo: **` within the frontmatter of them.
+For Claude, use `paths: ["*"]` -- You can also include both, as I often do.
 
 From what I understand, this is not literally on every request, but would be pulled in when
 it wants to edit a file.

@@ -1,6 +1,8 @@
 ---
 name: "Writing Docs"
 description: "Instructions and practices for how you should be writing docs"
+applyTo: '**'
+paths: ["*"]
 ---
 
 ## Two Archetypes
